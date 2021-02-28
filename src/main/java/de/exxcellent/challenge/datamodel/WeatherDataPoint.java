@@ -16,11 +16,6 @@ public class WeatherDataPoint {
         this.temperatureSpreadValue = temperatureSpreadValue;
     }
 
-    public WeatherDataPoint(String day, float maxTemperature, float minTemperature) {
-        this.day = day;
-        this.maxTemperature = maxTemperature;
-        this.minTemperature = minTemperature;
-    }
 
     public String getDay() {
         return day;
@@ -56,7 +51,16 @@ public class WeatherDataPoint {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        float THRESHOLD = 0.0001f;
+        if(obj == this){
+            return true;
+        }if(!(obj instanceof WeatherDataPoint)){
+            return false;
+        }
+        WeatherDataPoint wdp = (WeatherDataPoint) obj;
+        return day.equals(wdp.day) && Float.compare(maxTemperature, wdp.maxTemperature)==0
+                && Float.compare(minTemperature, wdp.minTemperature)==0
+                && Math.abs(temperatureSpreadValue - wdp.temperatureSpreadValue)<THRESHOLD;
     }
 }
 
