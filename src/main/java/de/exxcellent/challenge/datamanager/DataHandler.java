@@ -7,12 +7,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * interface between main / App class and the logic of weather task
+ */
 public class DataHandler {
 
 
     /**
-     * method to get the day with smallest temperature spread out of a list with weatherdatapoints
-     * @param weatherDataPoints is a list
+     * method to get the day with smallest temperature spread out of a list with weather data points
+     * determines the smallest temperature spread with the help of the Stream API
+     * @param weatherDataPoints a list with weather data points
      * @return the day as a string
      */
     public String getDayWithSmallestTempSpread(List<WeatherDataPoint> weatherDataPoints) {
