@@ -1,6 +1,8 @@
 package de.exxcellent.challenge.datamodel;
 
-
+/**
+ * Entity to store / describe a single measurement of weather data.
+ */
 public class WeatherDataPoint {
 
     private String day;
@@ -8,7 +10,13 @@ public class WeatherDataPoint {
     private float minTemperature;
     private float temperatureSpreadValue;
 
-
+    /**
+     * constructor to create a new instance of a weather data point
+     * @param day the day of measurement
+     * @param maxTemperature the maximum temperature value of the day
+     * @param minTemperature the minimum temperature value of the day
+     * @param temperatureSpreadValue the temperature spread value of the day
+     */
     public WeatherDataPoint(String day, float maxTemperature, float minTemperature, float temperatureSpreadValue){
         this.day = day;
         this.maxTemperature = maxTemperature;
@@ -49,6 +57,12 @@ public class WeatherDataPoint {
         this.temperatureSpreadValue = temperatureSpreadValue;
     }
 
+    /**
+     * override the equals method of the object class
+     * uses a threshold of .0001 to enable comparison of floats
+     * @param obj instance of a weather data point to compare with this instance
+     * @return a boolean: true if day, maxTemperature, minTemperature and temperatureSpreadValue match and false if obj is not an instance of WeatherDataPoint or parameters don't match
+     */
     @Override
     public boolean equals(Object obj) {
         float THRESHOLD = 0.0001f;
