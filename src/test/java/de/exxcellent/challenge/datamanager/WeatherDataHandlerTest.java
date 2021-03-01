@@ -2,6 +2,7 @@ package de.exxcellent.challenge.datamanager;
 
 import de.exxcellent.challenge.datamodel.WeatherDataPoint;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,11 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class WeatherDataHandlerTest {
 
     private WeatherDataHandler weatherDataHandler;
+
     @BeforeEach
     void setUp() {
         weatherDataHandler = new WeatherDataHandler();
     }
 
+    @DisplayName("Simple subtraction should work")
     @Test
     void testCalculateTemperatureSpread() {
 
@@ -28,6 +31,7 @@ public class WeatherDataHandlerTest {
         assertEquals(3, tempSpread, "Failed: wrong value");
     }
 
+    @DisplayName("Parsing of a list of lists of strings should work")
     @Test
     void testParseDataPoints() {
         List<String> firstRow = new ArrayList<>()
