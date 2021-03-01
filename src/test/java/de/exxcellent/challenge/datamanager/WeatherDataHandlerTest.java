@@ -26,9 +26,16 @@ public class WeatherDataHandlerTest {
     @Test
     void testCalculateTemperatureSpread() {
 
-        float tempSpread = weatherDataHandler.calculateTemperatureSpread(5.0f, 2.0f);
-
-        assertEquals(3, tempSpread, "Failed: wrong value");
+        assertEquals(3.1f, weatherDataHandler.calculateTemperatureSpread(5.3f, 2.2f),
+                0.0001, "Simple subtraction between floats should work");
+        assertEquals(2.8f, weatherDataHandler.calculateTemperatureSpread(5.0f, 2.2f),
+                0.0001, "Simple subtraction between floats should work");
+        assertEquals(4, weatherDataHandler.calculateTemperatureSpread(5, 1),
+                0.0001, "Simple subtraction between integers should work");
+        assertEquals(0, weatherDataHandler.calculateTemperatureSpread(7.8f, 7.8f),
+                0.0001, "Simple subtraction between floats should work");
+        assertEquals(5.2f, weatherDataHandler.calculateTemperatureSpread(7, 1.8f),
+                0.0001, "Simple subtraction between different data types should work");
     }
 
     @DisplayName("Parsing of a list of lists of strings should work")
@@ -62,7 +69,7 @@ public class WeatherDataHandlerTest {
 
         List<WeatherDataPoint> expectedList = Arrays.asList(day1, day2);
 
-        assertEquals(expectedList, weatherDataPoints, "wrong return list");
+        assertEquals(expectedList, weatherDataPoints, "Parsed data didn't match constructed data");
 
     }
 
