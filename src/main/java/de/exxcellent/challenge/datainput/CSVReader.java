@@ -17,7 +17,7 @@ public class CSVReader implements Reader{
 
     /**
      * method to load and read a CSV file from resource location and get a list of lists with all elements inside the file.
-     * The separator is a <code>CSV_SEPARATOR</code>
+     * The separator is set by {@code CSV_SEPARATOR}
      * @param path is the location (path, url,...) where the data is available from
      * @return list of lists with all elements
      */
